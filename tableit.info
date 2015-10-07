@@ -1,3 +1,14 @@
-name = tableit
+name = Tableit Responsive Tables
 description = Makes tables responsive using the tableit.js library
 core = 7.x
+version = 7.x-1.x-dev
+package = Tables
+
+; Dependencies
+dependencies[] = libraries (>=2.x)
+
+; Configuration link
+configure = admin/config/media/tableit
+
+; Files
+scripts[] = js/tableit.load.js

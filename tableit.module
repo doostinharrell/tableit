@@ -1,1 +1,99 @@
 <?php
+
+/**
+ * Implements hook_libraries_info().
+ *
+ * For defining external libraries.
+ */
+
+function tableit_libraries_info() {
+
+  // Expected to be extracted into 'sites/all/libraries/tableit'.
+  $libraries['tableit'] = array(
+    'name' => 'Tableit library',
+    'vendor url' => 'https://github.com/jemware/tableit',
+    'download url' => 'https://github.com/jemware/tableit/archive/master.zip',
+    'version arguments' => array(
+      'file' => 'bower.json',
+      'pattern' => '@version\s+([0-9a-zA-Z\.-]+)@',
+    ),
+    'files' => array(
+      'js' => array('tableit.min.js'),
+      'css' => array('css/tableit.min.css'),
+    ),
+  );
+
+  return $libraries;
+}
+
+/**
+ * Implements hook_library().
+ *
+ * We also define tableit through the core library callbacks.
+ */
+function tableit_library() {
+  $library_path = libraries_get_path('tableit') . '/';
+  $libraries['tableit'] = array(
+    'title' => 'Tableit library',
+    'website' => 'https://github.com/jemware/tableit',
+    'js' => array(
+      $library_path . 'tableit.min.js' => array(
+        'scope' => 'footer',
+      ),
+    ),
+    'css' => array(
+      $library_path . 'css/tableit.min.css' => array(
+        'type' => 'file',
+        'media' => 'screen',
+      ),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Load tableit library.
+ */
+function tableit_page_build(&$page) {
+  // load tableit library via libraries_load()
+  libraries_load('tableit');
+
+  // Pass variables to js with Drupal.settings;
+  $selectors = variable_get('tableit_selectors', 'table');
+  $tableit_settings = array(
+    'selectors' => $selectors,
+  );
+
+  drupal_add_js(array('tableit' => $tableit_settings), 'setting');
+}
+
+/**
+ * Implements hook_permission().
+ */
+function tableit_permission() {
+  return array(
+    'administer tableit' =>  array(
+      'title' => t('Administer the Tableit module'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function tableit_menu() {
+  $items = array();
+
+  $items['admin/config/media/tableit'] = array(
+    'title' => 'Tableit settings',
+    'description' => 'Configure the tableit module settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tableit_form_settings'),
+    'access arguments' => array('administer tableit'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 2,
+    'file' => 'includes/tableit.admin.inc',
+  );
+
+  return $items;
+}
