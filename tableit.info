@@ -1,0 +1,3 @@
+name = tableit
+description = Makes tables responsive using the tableit.js library
+core = 7.x
