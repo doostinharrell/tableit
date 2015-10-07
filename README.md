@@ -9,4 +9,4 @@ This is a Drupal module that uses the tableit library (see: https://github.com/j
 To use this module you will need to download the tableit library https://github.com/jemware/tableit.
 Extract the library into the sites/all/libraries folder where tableit.min.js is located at sites/all/libraries/tableit/tableit.min.js.
 
-Once the library is in place enable this module.
+Once the library is in place enable this module and visit admin/config/media/tableit to configure your selectors.
