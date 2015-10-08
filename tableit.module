@@ -98,7 +98,7 @@ function tableit_menu() {
     'access arguments' => array('administer tableit'),
     'type' => MENU_LOCAL_TASK,
     'weight' => 2,
-    'file' => 'includes/tableit.admin.inc',
+    'file' => 'inc/tableit.admin.inc',
   );
 
   return $items;
