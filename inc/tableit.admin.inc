@@ -16,7 +16,7 @@ function tableit_form_settings() {
   $form['settings']['tableit_commerce'] = array(
     '#type' => 'checkbox',
     '#title' => t('Commerce Tableit'),
-    '#description' => t('Enabling this feature will override CSS styles provided by Drupal Commerce for improved mobile styles.'),
+    '#description' => t('Note: Enabling this feature will override CSS styles provided by Drupal Commerce for improved mobile styles. It is recommended that you preface tables with additional css selectors as commerce nests tables which can cause unexpected results. Recommended selectors are: .node table, .page-checkout table.views-table, .page-cart table.views-table.'),
     '#default_value' => variable_get('tableit_commerce', 0),
   );
 

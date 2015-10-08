@@ -6,7 +6,7 @@
     padding: 0;
   }
   .tableit td {
-    width: 47.5%;
+    width: 97.5%;
     padding-right: 2.5%;
   }
   .tableit td:before {
@@ -16,7 +16,7 @@
     text-align: right;
     font-weight: bold;
   }
-  .commerce-order-handler-area-order-total .tableit.commerce-price-formatted-components {
+  .page-checkout .commerce-order-handler-area-order-total .commerce-price-formatted-components {
     width: 100%;
   }
   .page-checkout form, .page-cart form {

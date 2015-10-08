@@ -96,8 +96,6 @@ function tableit_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('tableit_form_settings'),
     'access arguments' => array('administer tableit'),
-    'type' => MENU_LOCAL_TASK,
-    'weight' => 2,
     'file' => 'inc/tableit.admin.inc',
   );
 
