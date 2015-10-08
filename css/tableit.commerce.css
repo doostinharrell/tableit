@@ -1,0 +1,22 @@
+@media only screen and (max-width: 768px) {
+  .tableit tr.odd, .tableit tr.even {
+    padding: 0;
+  }
+  .tableit td {
+    width: 47.5%;
+    padding-right: 2.5%;
+  }
+  .tableit.commerce-price-formatted-components .component-title {
+    text-align: right;
+    font-weight: bold;
+  }
+  .commerce-order-handler-area-order-total .tableit.commerce-price-formatted-components {
+    width: 100%;
+  }
+  .page-checkout form, .page-cart form {
+    /*overflow: hidden;*/
+  }
+  .page-checkout form input, .page-cart form input {
+    max-width: 100%;
+  }
+}

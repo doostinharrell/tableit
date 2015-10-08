@@ -65,6 +65,12 @@ function tableit_page_build(&$page) {
   );
 
   drupal_add_js(array('tableit' => $tableit_settings), 'setting');
+
+  $commerce_tableit = variable_get('tableit_commerce', 0);
+  if ($commerce_tableit === 1) {
+    drupal_add_css(drupal_get_path('module', 'tableit') . '/css/tableit.commerce.css');
+  }
+
 }
 
 /**
