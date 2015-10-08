@@ -1,10 +1,16 @@
 @media only screen and (max-width: 768px) {
+  table.tableit, .tableit table {
+    width: 100%;
+  }
   .tableit tr.odd, .tableit tr.even {
     padding: 0;
   }
   .tableit td {
     width: 47.5%;
     padding-right: 2.5%;
+  }
+  .tableit td:before {
+    padding-top: 10px;
   }
   .tableit.commerce-price-formatted-components .component-title {
     text-align: right;
@@ -19,4 +25,5 @@
   .page-checkout form input, .page-cart form input {
     max-width: 100%;
   }
+  
 }
