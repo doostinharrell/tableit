@@ -1,0 +1,28 @@
+@media only screen and (max-width: 768px) {
+  .calendar-calendar .tableit .date-box {
+    display: none;
+  }
+  .calendar-calendar .tableit td {
+    border-bottom: 1px solid #F4F4F4 !important;
+  }
+  .calendar-calender .tableit .month-view .full tr td.single-day.today {
+    border-top: 2px solid #7C7F12 !important;
+    border-bottom: 2px solid #7C7F12 !important;
+  }
+  .calendar-calendar .tableit td:after {
+    content: attr(data-day-of-month);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .25em;
+  }
+  .calendar-calendar .tableit .inner {
+    position: relative;
+    top: 2em;
+    width: 200%;
+    margin-left: -100%;
+  }
+  .calendar-calendar .tableit .inner .item:last-child .calendar.monthview {
+    margin-bottom: 3em;
+  }
+}

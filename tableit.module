@@ -55,20 +55,32 @@ function tableit_library() {
  * Load tableit library.
  */
 function tableit_page_build(&$page) {
-  // load tableit library via libraries_load()
-  libraries_load('tableit');
 
-  // Pass variables to js with Drupal.settings;
-  $selectors = variable_get('tableit_selectors', 'table');
-  $tableit_settings = array(
-    'selectors' => $selectors,
-  );
+  // Add tableit to non-administrative themes only.
+  if (!path_is_admin(current_path())) {
 
-  drupal_add_js(array('tableit' => $tableit_settings), 'setting');
+    // load tableit library via libraries_load()
+    libraries_load('tableit');
 
-  $commerce_tableit = variable_get('tableit_commerce', 0);
-  if ($commerce_tableit === 1) {
-    drupal_add_css(drupal_get_path('module', 'tableit') . '/css/tableit.commerce.css');
+    // Pass variables to js with Drupal.settings;
+    $selectors = variable_get('tableit_selectors', 'table');
+    $tableit_settings = array(
+      'selectors' => $selectors,
+    );
+
+    drupal_add_js(array('tableit' => $tableit_settings), 'setting');
+    drupal_add_js(drupal_get_path('module', 'tableit') . '/js/tableit.load.js');
+    drupal_add_css(drupal_get_path('module', 'tableit') . '/css/tableit.defaults.css');
+
+    $commerce_tableit = variable_get('tableit_commerce', 0);
+    if ($commerce_tableit === 1) {
+      drupal_add_css(drupal_get_path('module', 'tableit') . '/css/tableit.commerce.css');
+    }
+
+    $calendar_tableit = variable_get('tableit_calendar', 0);
+    if ($calendar_tableit === 1) {
+      drupal_add_css(drupal_get_path('module', 'tableit') . '/css/tableit.calendar.css');
+    }
   }
 
 }

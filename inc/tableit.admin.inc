@@ -20,6 +20,13 @@ function tableit_form_settings() {
     '#default_value' => variable_get('tableit_commerce', 0),
   );
 
+  $form['settings']['tableit_calendar'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Calendar Tableit'),
+    '#description' => t('Note: Enabling this feature will implement css styles to improve mobile styles for the calendar module.'),
+    '#default_value' => variable_get('tableit_calendar', 0),
+  );
+
   return system_settings_form($form);
 }
 

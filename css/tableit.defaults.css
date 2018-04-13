@@ -1,0 +1,12 @@
+@media only screen and (max-width: 768px) {
+  .tableit td {
+    width: 100%;
+    min-height: 2em;
+  }
+  .tableit td a {
+    position: relative;
+  }
+  .tableit td:before {
+    padding-top: .25em;
+  }
+}
